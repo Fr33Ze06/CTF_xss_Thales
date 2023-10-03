@@ -4,21 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livre d'or</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Livre d'or</h1>
 
-    <!-- Formulaire pour ajouter un commentaire -->
-    <form id="comment-form">
-        <label for="name">Nom:</label>
-        <input type="text" id="name" name="name" required><br>
-        <label for="comment">Commentaire:</label>
-        <textarea id="comment" name="comment" rows="4" required></textarea><br>
-        <input type="submit" value="Ajouter un commentaire">
-    </form>
+<body>
+    
+    <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
+    <div id='stars'></div>
+    <div id='stars2'></div>
+    <div id='stars3'></div>
+    
+<h1>Le Livre d'or</h1>
+    <div id="container_form">
+        
+        <!-- Formulaire pour ajouter un commentaire -->
+        <form id="comment-form">
+            <label for="name">Nom:</label>
+            <input type="text" id="name" name="name" required><br>
+            <label for="comment">Commentaire:</label>
+            <textarea id="comment" name="comment" rows="4" required></textarea><br>
+            <input type="submit" value="Ajouter un commentaire">
+        </form>
+    </div>
+    
+
 
     <!-- Zone pour afficher les commentaires -->
-    <div id="comments">
+    <div id="comments" class="comment-form">
         <!-- Les commentaires seront ajoutés ici -->
     </div>
 
@@ -41,5 +53,8 @@
             document.getElementById("comment").value = ""; // Efface le champ Commentaire
         });
     </script>
+
 </body>
 </html>
+
+<!-- <img src='#' onerror=alert("ok")> -->

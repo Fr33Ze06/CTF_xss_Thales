@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Espace</title>
+</head>
+<body>
+    <h1>L'Espace</h1>
+
+    <!-- Formulaire pour ajouter un commentaire -->
+    <form id="comment-form">
+        <label for="name">Nom:</label>
+        <input type="text" id="name" name="name" required><br>
+        <label for="comment">Commentaire:</label>
+        <textarea id="comment" name="comment" rows="4" required></textarea><br>
+        <input type="submit" value="Ajouter un commentaire">
+    </form>
+
+    <!-- Zone pour afficher les commentaires -->
+    <div id="comments">
+        <!-- Les commentaires seront ajoutés ici -->
+    </div>
+
+    <script>
+        // Fonction pour ajouter un commentaire à la zone d'affichage
+        function addComment(name, comment) {
+            const commentsDiv = document.getElementById("comments");
+            const commentDiv = document.createElement("div");
+            commentDiv.innerHTML = `<strong>${name}:</strong> ${comment}`;
+            commentsDiv.appendChild(commentDiv);
+        }
+
+        // Gestionnaire d'événement pour soumettre le formulaire
+        document.getElementById("comment-form").addEventListener("submit", function (event) {
+            event.preventDefault(); // Empêche le formulaire de se soumettre normalement
+            const name = document.getElementById("name").value;
+            const comment = document.getElementById("comment").value;
+            addComment(name, comment); // Ajoute le commentaire à la zone d'affichage
+            document.getElementById("name").value = ""; // Efface le champ Nom
+            document.getElementById("comment").value = ""; // Efface le champ Commentaire
+        });
+
+        addComment("Jacques", "Hey!");
+        addComment("Marc", "Ce forum est géniale!");
+    </script>
+
+    <!-- <button id="continuer" style="display: none;">Continuer</button>
+
+    <script>
+        // Fonction pour afficher une alerte personnalisée
+        function AfterAlert() {
+            
+            // Une fois que l'alerte a été affichée, afficher le bouton "Continuer"
+            document.getElementById("continuer").style.display = "block";
+        }
+
+        // Attacher la fonction customAlert à un événement, par exemple, un clic sur un bouton
+        document.getElementById("continuer").addEventListener("click", function () {
+            window.location.href = "niv3.html";
+        });
+
+        // Appeler la fonction customAlert pour afficher l'alerte initiale
+        AfterAlert();
+    </script> -->
+</body>
+</html>
+
+<!-- <img src='#' onerror=alert("ok")> -->
