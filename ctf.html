@@ -17,7 +17,13 @@
     <div id='stars2'></div>
     <div id='stars3'></div>
     
-<h1>Le Livre d'or</h1>
+    <h1>Le Livre d'or</h1>
+    
+    <div class="container_indice">
+        <button id="genererIndice">Générer un indice</button>
+        <p id="indice"></p>
+    </div>
+
     <div id="container_form">
         
         <!-- Formulaire pour ajouter un commentaire -->
@@ -30,12 +36,47 @@
         </form>
     </div>
     
-
-
+    
+    
     <!-- Zone pour afficher les commentaires -->
     <div id="comments">
         <!-- Les commentaires seront ajoutés ici -->
     </div>
+    
+
+    <script>
+        var indices = [
+        "Indice 1 : Lorem ipsum dolor sit amet.",
+        "Indice 2 : consectetur adipiscing elit.",
+        "Indice 3 : Nunc vel rutrum nunc."
+    ];
+
+    var indiceCourant = 0;
+    var dernierClic = 0;
+    var delaiEntreIndices = 2 * 60 * 1000; // 2 minutes en millisecondes
+
+    function genererIndice() {
+        var tempsActuel = new Date().getTime();
+
+        if (tempsActuel - dernierClic >= delaiEntreIndices) {
+            if (indiceCourant < indices.length) {
+                var nouvelIndice = indices[indiceCourant];
+                document.getElementById("indice").textContent = nouvelIndice;
+                indiceCourant++;
+                dernierClic = tempsActuel;
+            } else {
+                document.getElementById("indice").textContent = "Plus d'indices disponibles.";
+                document.getElementById("genererIndice").disabled = true;
+            }
+        } else {
+            var attenteRestante = (delaiEntreIndices - (tempsActuel - dernierClic)) / 1000;
+            alert("Attendez encore " + attenteRestante + " secondes avant de générer un nouvel indice.");
+        }
+    }
+
+    document.getElementById("genererIndice").addEventListener("click", genererIndice);
+
+    </script>
 
     <script>
         const User = 5;
@@ -46,7 +87,7 @@
             commentDiv.innerHTML = `<strong>${name}:</strong> ${comment}`;
             commentsDiv.appendChild(commentDiv);
         }
-
+        
         // Gestionnaire d'événement pour soumettre le formulaire
         document.getElementById("comment-form").addEventListener("submit", function (event) {
             event.preventDefault(); // Empêche le formulaire de se soumettre normalement
@@ -58,15 +99,17 @@
         });
     </script>
 
+    <script src="script.js"></script>
+    
 </body>
 </html>
 
 <!-- <img src='#' onerror=alert("ok")> 
-
-<input type="file" id="folderInput" webkitdirectory directory>
-
-Hello</div></div><script>alert("ok")</script>
-
-<iframe src="http://site-du-hacker.com" width=100% height=100%></iframe>
-
+    
+    <input type="file" id="folderInput" webkitdirectory directory>
+    
+    Hello</div></div><script>alert("ok")</script>
+    
+    <iframe src="http://site-du-hacker.com" width=100% height=100%></iframe>
+    
 -->
