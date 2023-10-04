@@ -9,7 +9,7 @@
 
 <body>
     <div class="space">
-        <img src="Fuser.png" alt="">
+        <img src="fusee.png" alt="">
     </div>
     
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
@@ -20,7 +20,7 @@
     <h1>Le Livre d'or</h1>
     
     <div class="container_indice">
-        <button id="genererIndice">Générer un indice</button>
+        <img src="indice.jpg" style="width: 7.5%;" id="genererIndice">
         <p id="indice"></p>
     </div>
 
@@ -45,40 +45,37 @@
     
 
     <script>
+
         var indices = [
         "Indice 1 : Lorem ipsum dolor sit amet.",
         "Indice 2 : consectetur adipiscing elit.",
-        "Indice 3 : Nunc vel rutrum nunc."
-    ];
+        "Indice 3 : Nunc vel rutrum nunc."];
 
-    var indiceCourant = 0;
-    var dernierClic = 0;
-    var delaiEntreIndices = 2 * 60 * 1000; // 2 minutes en millisecondes
+        var indiceCourant = 0;
+        var dernierClic = 0;
+        var delaiEntreIndices = 2 * 60 * 1000; // 2 minutes en millisecondes
 
-    function genererIndice() {
-        var tempsActuel = new Date().getTime();
+        function genererIndice() {
+            var tempsActuel = new Date().getTime();
 
-        if (tempsActuel - dernierClic >= delaiEntreIndices) {
-            if (indiceCourant < indices.length) {
-                var nouvelIndice = indices[indiceCourant];
-                document.getElementById("indice").textContent = nouvelIndice;
-                indiceCourant++;
-                dernierClic = tempsActuel;
+            if (tempsActuel - dernierClic >= delaiEntreIndices) {
+                if (indiceCourant < indices.length) {
+                    var nouvelIndice = indices[indiceCourant];
+                    document.getElementById("indice").textContent = nouvelIndice;
+                    indiceCourant++;
+                    dernierClic = tempsActuel;
+                } else {
+                    document.getElementById("indice").textContent = "Plus d'indices disponibles.";
+                    document.getElementById("genererIndice").disabled = true;
+                }
             } else {
-                document.getElementById("indice").textContent = "Plus d'indices disponibles.";
-                document.getElementById("genererIndice").disabled = true;
+                var attenteRestante = (delaiEntreIndices - (tempsActuel - dernierClic)) / 1000;
+                alert("Attendez encore " + attenteRestante + " secondes avant de générer un nouvel indice.");
             }
-        } else {
-            var attenteRestante = (delaiEntreIndices - (tempsActuel - dernierClic)) / 1000;
-            alert("Attendez encore " + attenteRestante + " secondes avant de générer un nouvel indice.");
         }
-    }
 
-    document.getElementById("genererIndice").addEventListener("click", genererIndice);
+        document.getElementById("genererIndice").addEventListener("click", genererIndice);
 
-    </script>
-
-    <script>
         const User = 5;
         // Fonction pour ajouter un commentaire à la zone d'affichage
         function addComment(name, comment) {

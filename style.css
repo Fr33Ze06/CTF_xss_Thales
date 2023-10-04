@@ -138,8 +138,7 @@ input[type=submit]:hover {
 #indice{
   color: white;
   width: 20%;
-  /* display: flex; */
-  border-radius: 20px;
+  margin-top: 20px;
   padding: 15px;
   position: absolute;
   left: -2px;
@@ -147,7 +146,7 @@ input[type=submit]:hover {
 
 #genererIndice{
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 50%;
   background-color: #1b3b77;
   color: white;
   border: 1px solid #1b3b77;
@@ -156,7 +155,7 @@ input[type=submit]:hover {
   left: 5px;
   transition: background-color ease 0.3s;
   width: 200px;
-  padding: 20px;
+  padding: 2px;
   align-items: center;
   box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
 }
