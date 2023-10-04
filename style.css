@@ -5,6 +5,7 @@ html {
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     /* overflow: hidden; */
     justify-content: center;
+    font-family: 'Mooli', sans-serif;
     
 }
 
@@ -114,9 +115,15 @@ input[type=submit]:hover {
   color: #1b3b77;
 }
 
+::-webkit-scrollbar {
+  width: 10px; /* Largeur de la barre de défilement */
+}
 
-
-
+/* Personnaliser la poignée de la barre de défilement */
+::-webkit-scrollbar-thumb {
+  background-color: #1b3b77af; /* Couleur de la poignée */
+  border-radius: 5px; /* Arrondi de la poignée */
+}
 
 /*************** ETOILE ********************/
 
