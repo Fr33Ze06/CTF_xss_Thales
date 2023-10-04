@@ -1,16 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Mooli&display=swap');
+
 html {
     height: 100%;
     background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
     /* overflow: hidden; */
     justify-content: center;
-    font-family: "Roboto", sans-serif;
+    
 }
 
   /*************** FORMULAIRE ********************/
   
 h1 {
   text-align: center;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', "Geneva", Verdana, sans-serif;
+  font-family: 'Mooli', sans-serif;
   color: white;
 }
     
@@ -18,7 +20,7 @@ h1 {
   z-index: 5;
   text-align: center;
   line-height: 2em;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', "Geneva", Verdana, sans-serif;
+  font-family: 'Mooli', sans-serif;
   padding: 20px;
   align-items: center;
   background-color: white;
@@ -93,6 +95,7 @@ textarea:focus {
 }
 
 input[type=submit] {
+  font-family: 'Mooli', sans-serif;
   border-radius: 20px;
   background-color: #1b3b77;
   color: white;
