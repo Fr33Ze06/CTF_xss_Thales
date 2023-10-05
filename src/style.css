@@ -167,6 +167,98 @@ input[type=submit]:hover {
   color: #1b3b77;
 }
 
+/** POPUP **/
+
+.popup {
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 1070px;
+  height: 570px;
+  padding: 50px;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  align-items: center;
+  z-index: 9;
+  transform: translate(-50%, -60%);
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+}
+
+.popup p{
+  text-align: left;
+}
+
+/* Style du bouton de fermeture */
+.close-button {
+  font-family: 'Mooli', sans-serif;
+  background-color: #ff0000;
+  color: #fff;
+  border: 1px solid red;
+  position: absolute;
+  bottom: 10px;
+  transform: translate(-50%, -50%);
+  padding: 15px 100px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: ease 0.3s;
+}
+
+.close-button:hover {
+  background-color: #ffffff;
+  color: red;
+}
+
+/** Button Synopsis **/
+
+.Syn
+{
+  flex-direction: column;
+  display: flex;
+}
+
+#Synopsis{
+  font-family: 'Mooli', sans-serif;
+  cursor: pointer;
+  border-radius: 20px;
+  background-color: #1b3b77;
+  color: white;
+  border: 1px solid #1b3b77;
+  transition: background-color ease 0.3s;
+  position: absolute;
+  top: 10px;
+  right: 5px;
+  width: 200px;
+  padding: 20px;
+  align-items: center;
+  box-shadow: 0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05);
+}
+
+#Synopsis:hover {
+  background-color: white;
+  color: #1b3b77;
+}
+
+/* input[type=submit] {
+  font-family: 'Mooli', sans-serif;
+  border-radius: 20px;
+  background-color: #1b3b77;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid #1b3b77;
+  transition: background-color ease 0.3s;
+}
+
+input[type=submit]:hover {
+  border-radius: 20px;
+  background-color: white;
+  color: #1b3b77;
+} */
 
 /*************** ETOILE ********************/
 

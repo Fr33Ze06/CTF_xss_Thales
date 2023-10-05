@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Livre d'or</title>
-    <link rel="stylesheet" href="style.css">
+    <title>GalaxyTalk</title>
+    <link rel="stylesheet" href="src/style.css">
+    <link rel="icon" href="src/image/Galaxy.png" type="image/png">
 </head>
 
 <body>
     <div class="space">
-        <img src="fusee.png" alt="">
+        <img src="src/image/fusee.png" alt="">
     </div>
     
     <link href='https://fonts.googleapis.com/css?family=Lato:300,400,700' rel='stylesheet' type='text/css'>
@@ -17,11 +18,35 @@
     <div id='stars2'></div>
     <div id='stars3'></div>
     
-    <h1>Le Livre d'or</h1>
+    <h1>GalaxyTalk</h1>
     
     <div class="container_indice">
-        <img src="indice.jpg" style="width: 7.5%;" id="genererIndice">
+        <img src="src/image/indice.jpg" style="width: 7.5%;" id="genererIndice">
         <p id="indice"></p>
+    </div>
+
+    <div id="popup" class="popup">
+        <h2><strong>Forum Intergalactique - Capture The Flag</strong><br></h2>
+        <p><strong>Synopsis :</strong> <br>
+            Dans un avenir lointain, où les technologies intergalactiques ont permis à des civilisations de toute la galaxie de se connecter et de communiquer via un forum en ligne appelé "GalaxyTalk," un défi a été lancé pour tester la sécurité de ce forum. Le mystérieux administrateur du forum, connu sous le nom de "GalaxyGuardian," prétend avoir sécurisé son compte avec le cookie le plus puissant de la galaxie. Les participants au CTF sont appelés à tenter de capturer ce cookie, qui est le drapeau du défi. <br><br>
+        
+            <strong>Déroulement du CTF :</strong> <br>
+            1. <strong>Objectif :</strong> L'objectif du CTF est de capturer le cookie de l'administrateur "GalaxyGuardian" en exploitant diverses failles de sécurité sur le forum. <br>
+            2. <strong>Étapes du Défi :</strong>
+               - Les participants devront explorer les fonctionnalités du site pour découvrir des indices sur les vulnérabilités potentielles sur le forum GalaxyTalk. <br>
+               - Ils devront rechercher des failles courantes de sécurité web telles que les injections SQL, les failles XSS (Cross-Site Scripting), l'authentification faible, etc. <br>
+               - Le cookie de l'administrateur "GalaxyGuardian" sera stocké sur sa session protégé par des mesures de sécurité. <br>
+               - Les participants devront utiliser leurs compétences en piratage éthique pour contourner ces mesures et extraire le cookie. <br>
+            3. <strong>Apprentissage :</strong> Le CTF est également conçu pour être une expérience d'apprentissage. Des ressources et des tutoriels sont disponibles pour aider les participants à développer leurs compétences en sécurité web. <br>
+            4. <strong>Durée :</strong> Le CTF peut durer plusieurs heures pour permettre aux participants d'explorer en profondeur les vulnérabilités potentielles du forum. <br><br>
+        
+            Ce CTF offre une occasion divertissante et éducative de mettre en pratique les compétences en sécurité web tout en plongeant dans un scénario intergalactique fascinant. Il met en lumière l'importance de la sécurité des données, même dans un univers virtuel lointain.
+        </p>
+        <button id="closeButton" class="close-button">Fermer</button>
+    </div>
+
+    <div class="Syn">
+        <button id="Synopsis">Synopsis</button>
     </div>
 
     <div id="container_form">
@@ -47,8 +72,8 @@
     <script>
 
         var indices = [
-        "Indice 1 : Lorem ipsum dolor sit amet.",
-        "Indice 2 : consectetur adipiscing elit.",
+        "Indice 1 : Ce forum contient des failles XSS.",
+        "Indice 2 : Exploiter cette faille pour mettre des potentiels scripts.",
         "Indice 3 : Nunc vel rutrum nunc."];
 
         var indiceCourant = 0;
@@ -76,7 +101,29 @@
 
         document.getElementById("genererIndice").addEventListener("click", genererIndice);
 
-        const User = 5;
+        var popup = document.getElementById("popup");
+        var closeButton = document.getElementById("closeButton");
+        var button = document.getElementById("genererIndice");
+        var synopsis = document.getElementById("Synopsis");
+
+        // Afficher la pop-up au chargement de la page
+        window.addEventListener("load", function() {
+            popup.style.display = "block";
+            button.style.display = "none";
+            synopsis.style.display = "none";
+        });
+
+        // Gérer la fermeture de la pop-up lorsque le bouton est cliqué
+        closeButton.addEventListener("click", function() {
+            popup.style.display = "none";
+            button.style.display = "block";
+            synopsis.style.display = "block";
+        });
+
+        synopsis.addEventListener("click", function() {
+            popup.style.display = "block";
+        });
+
         // Fonction pour ajouter un commentaire à la zone d'affichage
         function addComment(name, comment) {
             const commentsDiv = document.getElementById("comments");
