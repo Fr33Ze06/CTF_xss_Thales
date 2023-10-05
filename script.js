@@ -7,7 +7,25 @@ var indices = [
     var indiceCourant = 0;
     var dernierClic = 0;
     var delaiEntreIndices = 2 * 60 * 1000; // 2 minutes en millisecondes
-
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
     function genererIndice() {
         var tempsActuel = new Date().getTime();
 
@@ -47,3 +65,8 @@ var indices = [
         document.getElementById("name").value = ""; // Efface le champ Nom
         document.getElementById("comment").value = ""; // Efface le champ Commentaire
     });
+    var phraseCookie = getCookie("maPhrase");
+    if (!phraseCookie) {
+        var maPhrase = "Votre phrase ici";
+        setCookie("maPhrase", maPhrase, 30); // Le dernier paramètre est la durée en jours avant l'expiration du cookie
+    }
