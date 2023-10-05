@@ -21,15 +21,19 @@
     
     <div id="popup" class="popup">
         <div class="popup-content">
-            <p>Voici des informations importantes dans cette pop-up.</p>
+            <p>Synopsis : <br>
+                Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes, <br> varia animo tum miscente consilia, tandem id ut optimum factu elegit: <br> et Vrsicinum primum ad se venire summo cum honore mandavit ea specie ut pro rerum tunc urgentium captu disponeretur concordi consilio, <br>quibus virium incrementis Parthicarum gentium a arma minantium impetus frangerentur.</p>
             <button id="closeButton" class="close-button">Fermer</button>
         </div>
     </div>
 
-
     <div class="container_indice">
         <button id="genererIndice">Générer un indice</button>
         <p id="indice"></p>
+    </div>
+
+    <div class="Syn">
+        <button id="Synopsis">Synopsis</button>
     </div>
 
     <div id="container_form">
@@ -57,15 +61,25 @@
 
         var popup = document.getElementById("popup");
         var closeButton = document.getElementById("closeButton");
+        var button = document.getElementById("genererIndice");
+        var synopsis = document.getElementById("Synopsis");
 
         // Afficher la pop-up au chargement de la page
         window.addEventListener("load", function() {
             popup.style.display = "block";
+            button.style.display = "none";
+            synopsis.style.display = "none";
         });
 
         // Gérer la fermeture de la pop-up lorsque le bouton est cliqué
         closeButton.addEventListener("click", function() {
             popup.style.display = "none";
+            button.style.display = "block";
+            synopsis.style.display = "block";
+        });
+
+        synopsis.addEventListener("click", function() {
+            popup.style.display = "block";
         });
 
         var indices = [
